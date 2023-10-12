@@ -42,16 +42,37 @@ function game() {
   let b = 0;
   if (playRound(playerSelection, computerSelection) == "You won!") {
      a++;
-  } else {
+  } else if (playRound(playerSelection, computerSelection) == "Loser! bahahah") {
      b++;
   }
 
   playerSelection = prompt("Pick your choice");
   computerSelection = getComputerChoice();
   console.log(computerSelection);
-  comsole.lof(playRound(playerSelection, computerSelection));
-  
+  console.log(playRound(playerSelection, computerSelection));
 
+  playerSelection = prompt("Pick your choice");
+  computerSelection = getComputerChoice();
+  console.log(computerSelection);
+  console.log(playRound(playerSelection, computerSelection));
+
+  playerSelection = prompt("Pick your choice");
+  computerSelection = getComputerChoice();
+  console.log(computerSelection);
+  console.log(playRound(playerSelection, computerSelection));
+
+  playerSelection = prompt("Pick your choice");
+  computerSelection = getComputerChoice();
+  console.log(computerSelection);
+  console.log(playRound(playerSelection, computerSelection));
+
+  playerSelection = prompt("Pick your choice");
+  computerSelection = getComputerChoice();
+  console.log(computerSelection);
+  console.log(playRound(playerSelection, computerSelection));
+  
+  console.log(a);
+  console.log(b);
 }
 console.log(game())
 //each games must be recorded, scored
