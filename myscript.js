@@ -8,7 +8,11 @@ show the win/lose message */
 
 
 //user input one out of three: rock paper scissor
+let playerSelection = prompt("What is your pick? ").toLowerCase();
+console.log(playerSelection)
 
+let options = ["rock", "paper", "scissor"];
+(options.includes(playerSelection)) ? true : alert("Please choose between rock, paper, and scissor!")
 
 //computer also output a choice out of those 
 function getComputerChoice() {
@@ -21,12 +25,18 @@ console.log(computerSelection);
 
 //compare both choices
 function playRound(playerSelection, computerSelection) {
-  let playerSelection = prompt("What is your pick? ").toLowerCase();
-  console.log(playerSelection)
-
-  let options = ["rock", "paper", "scissor"];
-  (options.includes(playerSelection)) ? true : alert("Please choose between rock, paper, and scissor!")
+  if ((playerSelection == "rock" && computerSelection == "paper") 
+  || (playerSelection == "paper" && computerSelection == "scissor") 
+  || (playerSelection == "scissor" && computerSelection == "rock")) {
+    return console.log("Loser! bahahah")
+  } else if (playerSelection === computerSelection) {
+    return console.log("You're tied!")
+  } else {
+    return console.log("You won!")
+  }
 }
+
+playRound();
 
 //the rule is rock > scissor, scissor > paper, paper > rock
 //same choices will be tied
