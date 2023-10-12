@@ -8,42 +8,52 @@ show the win/lose message */
 
 
 //user input one out of three: rock paper scissor
-let playerSelection = prompt("What is your pick? ").toLowerCase();
-console.log(playerSelection)
-
-let options = ["rock", "paper", "scissor"];
-(options.includes(playerSelection)) ? true : playerSelection = prompt("Choose again")
-
 //computer also output a choice out of those 
 function getComputerChoice() {
   options = ["rock", "paper", "scissor"];
-  computerSelection = options[Math.floor(Math.random() * options.length)];
-  return computerSelection;
+  return options[Math.floor(Math.random() * options.length)];
 }
-getComputerChoice();
-console.log(computerSelection);
 
 //compare both choices
+//the rule is rock > scissor, scissor > paper, paper > rock
+//same choices will be tied
+//if the player win, message you won
+//if the player lose, message you lose
+
+
 function playRound(playerSelection, computerSelection) {
-  console.log(playerSelection);
-  console.log(computerSelection)
   if ((playerSelection == "rock" && computerSelection == "paper") 
-  || (playerSelection == "paper" && computerSelection == "scissor") 
-  || (playerSelection == "scissor" && computerSelection == "rock")) {
-    return console.log("Loser! bahahah")
+    || (playerSelection == "paper" && computerSelection == "scissor") 
+    || (playerSelection == "scissor" && computerSelection == "rock")) {
+    return ("Loser! bahahah");
   } else if (playerSelection == computerSelection) {
-    return console.log("You're tied!")
+    return ("You're tied!");
   } else {
-    return console.log("You won!")
+    return ("You won!");
   }
 }
 
-playRound(playerSelection, computerSelection);
+let playerSelection;
+let computerSelection;
 
-//the rule is rock > scissor, scissor > paper, paper > rock
-//same choices will be tied
-//if the winner win, message you won
-//if the winner lose, message you lose
 //play five games
+function game() {
+  let a = 0;
+  let b = 0;
+  if (playRound(playerSelection, computerSelection) == "You won!") {
+     a++;
+  } else {
+     b++;
+  }
+
+  playerSelection = prompt("Pick your choice");
+  computerSelection = getComputerChoice();
+  console.log(computerSelection);
+  comsole.lof(playRound(playerSelection, computerSelection));
+  
+
+}
+console.log(game())
 //each games must be recorded, scored
+
 //whoever got the higher score wins
