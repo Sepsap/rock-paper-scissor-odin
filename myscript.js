@@ -1,12 +1,9 @@
-let score;
-
 function getComputerChoice() {
   options = ["rock", "paper", "scissor"];
   return options[Math.floor(Math.random() * options.length)];
 }
 
 function playRound(playerSelection, computerSelection) {
-  
   computerSelection = getComputerChoice();
   if ((playerSelection == "rock" && computerSelection == "paper") 
     || (playerSelection == "paper" && computerSelection == "scissor") 
@@ -26,7 +23,7 @@ let b = 0;
 let play;
 function game() {
   for (let i = 0; i < 5; i++) {
-    playerSelection = prompt("Pick your choice");
+    playerSelection = prompt("Pick your choice").toLowerCase();
     play = playRound(playerSelection, computerSelection);
     console.log(play)
     if (play == "You won!") {
@@ -34,15 +31,15 @@ function game() {
     } else if (play == "Loser! bahahah") {
       b += 1;
     }
+    console.log(`Your score: ${a} \nCOM score: ${b}`);
   }
-  console.log(a);
-  console.log(b);
+  console.log(`Final score \nYou: ${a} \nCOM ${b}`)
   if (a > b) {
-    return "Congrats!";
+    return `You won!` ;
   } else if (a < b) {
-    return "Too bad"
+    return `You lose!`;
   } else {
-    return "Tied, nice one"
+    return `Tied, nice one`;
   }
 }
 
